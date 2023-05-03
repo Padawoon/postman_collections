@@ -1,0 +1,2103 @@
+{
+	"info": {
+		"_postman_id": "663b931f-3135-45ad-9adf-22bdecd3b64c",
+		"name": "REST Alaska Bears",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22916668"
+	},
+	"item": [
+		{
+			"name": "Get info about application",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/info",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET APP info",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/info",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 22:42:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "Welcome to Alaska!\nThis is CRUD service for bears in alaska.\nCRUD routes presented with REST naming notation:\n\nPOST\t\t\t/bear - create\nGET\t\t\t/bear - read all bears\nGET\t\t\t/bear/:id - read specific bear\nPUT\t\t\t/bear/:id - update specific bear\nDELETE\t\t\t/bear - delete all bears\nDELETE\t\t\t/bear/:id - delete specific bear\n\nExample of ber json: {\"bear_type\":\"BLACK\",\"bear_name\":\"mikhail\",\"bear_age\":17.5}.\nAvailable types for bears are: POLAR, BROWN, BLACK and GUMMY."
+				}
+			]
+		},
+		{
+			"name": "Create bear",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"BONGO\",\r\n    \"bear_age\": -1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/bear",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bear"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create POLAR bear",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"Polarus\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:59:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "53"
+				},
+				{
+					"name": "Create BROWN bear",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"Brownus\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 00:00:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "54"
+				},
+				{
+					"name": "Create BLACK bear",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"Blackus\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 00:01:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "55"
+				},
+				{
+					"name": "Create GUMMY bear",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"GUMMY\",\r\n    \"bear_name\": \"Gummus\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 00:01:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "56"
+				},
+				{
+					"name": "Create INVALID TYPE bear",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"OLOLO\",\r\n    \"bear_name\": \"Olololus\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 00:02:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "<html>\n    <body>\n        <h2>500 Internal Server Error</h2>\n    </body>\n</html>"
+				},
+				{
+					"name": "Create with missing fields in body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_name\": \"Olololus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 00:03:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "Error. Pls fill all parameters"
+				},
+				{
+					"name": "Create bear 100 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"BONGO\",\r\n    \"bear_age\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:03:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "18"
+				},
+				{
+					"name": "Create bear 99 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"BONGO\",\r\n    \"bear_age\": 99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:04:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "19"
+				},
+				{
+					"name": "Create bear 50 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"MONGO\",\r\n    \"bear_age\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:40:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "34"
+				},
+				{
+					"name": "Create bear 2 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"BONGO\",\r\n    \"bear_age\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:07:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "22"
+				},
+				{
+					"name": "Create bear 1 yr old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"BONGO\",\r\n    \"bear_age\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:05:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "20"
+				},
+				{
+					"name": "Create bear 101 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"BONGO\",\r\n    \"bear_age\": 101\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:05:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "21"
+				},
+				{
+					"name": "Create bear 0 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"MONGO\",\r\n    \"bear_age\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:09:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "24"
+				},
+				{
+					"name": "Create bear 99.99999999999999 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"MONGO\",\r\n    \"bear_age\": 99.99999999999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:49:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "48"
+				},
+				{
+					"name": "Create bear 0.999999999999999 yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"MONGO\",\r\n    \"bear_age\": 0.999999999999999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:48:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "47"
+				},
+				{
+					"name": "Create bear \"ten\" yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"MONGO\",\r\n    \"bear_age\": ten\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:19:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "<html>\n    <body>\n        <h2>500 Internal Server Error</h2>\n    </body>\n</html>"
+				},
+				{
+					"name": "Create bear 0.ten yrs old",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"MONGO\",\r\n    \"bear_age\": 0.ten\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 13 Apr 2023 23:19:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "<html>\n    <body>\n        <h2>500 Internal Server Error</h2>\n    </body>\n</html>"
+				},
+				{
+					"name": "Create bear with en name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"BONGO\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 11:59:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "98"
+				},
+				{
+					"name": "Create bear with ru name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"Бонго\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 11:59:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "99"
+				},
+				{
+					"name": "Create bear with cn name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"松見秀\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:02:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "101"
+				},
+				{
+					"name": "Create bear with arabic name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BLACK\",\r\n    \"bear_name\": \"فلا أحد\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:01:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "100"
+				},
+				{
+					"name": "Create bear with empty name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:03:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "102"
+				},
+				{
+					"name": "Create bear with long name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"KAWABONGOMONGOTOROOLOLOLOREMIPSUMNAME\",\r\n    \"bear_age\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:20:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "103"
+				},
+				{
+					"name": "Create bear with short name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"Bo\",\r\n    \"bear_age\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:53:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "105"
+				},
+				{
+					"name": "Create bear with numbers name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"POLAR\",\r\n    \"bear_name\": \"99999999999\",\r\n    \"bear_age\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:55:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "106"
+				}
+			]
+		},
+		{
+			"name": "Get list of all bears",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/bear",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bear"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Read all bears",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 01:15:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bear_id\": 80,\n        \"bear_type\": \"POLAR\",\n        \"bear_name\": \"POLARUS\",\n        \"bear_age\": 10\n    },\n    {\n        \"bear_id\": 81,\n        \"bear_type\": \"BROWN\",\n        \"bear_name\": \"BROWNUS\",\n        \"bear_age\": 10\n    },\n    {\n        \"bear_id\": 82,\n        \"bear_type\": \"BLACK\",\n        \"bear_name\": \"BLACKUS\",\n        \"bear_age\": 10\n    },\n    {\n        \"bear_id\": 83,\n        \"bear_type\": \"UNKNOWN\",\n        \"bear_name\": \"EMPTY_NAME\",\n        \"bear_age\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Find bear",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/bear/2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bear",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Find a specific bear [81]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bear/81",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"81"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 01:16:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bear_id\": 81,\n    \"bear_type\": \"BROWN\",\n    \"bear_name\": \"BROWNUS\",\n    \"bear_age\": 10\n}"
+				},
+				{
+					"name": "Find bear with INVALID ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bear/999",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"999"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 02:49:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "EMPTY"
+				}
+			]
+		},
+		{
+			"name": "Update specific bear",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bear_type\":\"BROWN\",\r\n\"bear_name\":\"MihMih\",\r\n\"bear_age\":6}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/bear/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bear",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update specific bear",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"bear_type\":\"BROWN\",\r\n\"bear_name\":\"TORONGO\",\r\n\"bear_age\":21}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/86",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"86"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 02:45:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				},
+				{
+					"name": "Update age for a specific bear",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"BROWNUS\",\r\n    \"bear_age\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/81",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"81"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 01:21:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				},
+				{
+					"name": "Update type and name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"BROWNUS\",\r\n    \"bear_age\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/81",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"81"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 01:21:00 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				},
+				{
+					"name": "Update a bear with INVALID ID",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"BROWNUS\",\r\n    \"bear_age\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/99",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"99"
+							]
+						}
+					},
+					"status": "Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 01:32:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "<html>\n    <body>\n        <h2>500 Internal Server Error</h2>\n    </body>\n</html>"
+				},
+				{
+					"name": "Update bear with bear_type UNKNOWN",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"bear_type\":\"BROWN\",\r\n\"bear_name\":\"TORONGO\",\r\n\"bear_age\":21}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/83",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"83"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 02:41:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "Not found"
+				},
+				{
+					"name": "Update a bear with an empty name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"\",\r\n    \"bear_age\": 11.0\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/97",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"97"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:15:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				},
+				{
+					"name": "Update a bear with long name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"OHMYGODITSANEWLONGNAMEFORABEARLOOK\",\r\n    \"bear_age\": 11.0\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/97",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"97"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:21:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				},
+				{
+					"name": "Update a bear with short name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"Po\",\r\n    \"bear_age\": 11.0\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/97",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"97"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:55:03 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				},
+				{
+					"name": "Update a bear with a name consisting only numbers",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bear_type\": \"BROWN\",\r\n    \"bear_name\": \"88888888\",\r\n    \"bear_age\": 11.0\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bear/96",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"96"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 17 Apr 2023 12:56:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				}
+			]
+		},
+		{
+			"name": "Delete specific bear",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/bear/42",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bear",
+						"42"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete specific bear [80]",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bear/80",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear",
+								"80"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 01:33:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				}
+			]
+		},
+		{
+			"name": "Delete all bears :(",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/bear",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bear"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete all bears",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bear",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bear"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Apr 2023 02:46:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(9.4.31.v20200723)"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "192.168.40.100:6058",
+			"type": "default"
+		}
+	]
+}
